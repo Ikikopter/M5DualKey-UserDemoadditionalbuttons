@@ -1,0 +1,25 @@
+name: ESP-IDF Cloud Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+
+    - name: esp-idf build
+      uses: espressif/esp-idf-ci-action@v1
+      with:
+        esp_idf_version: v5.5.1
+        target: esp32s3
+
+    - name: Upload Firmware Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: esp32-firmware
+        path: build/*.bin
