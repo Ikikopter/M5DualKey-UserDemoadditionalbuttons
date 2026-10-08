@@ -71,6 +71,9 @@ static uint16_t keymaps[][1][KBD_COL_NUM] = {
     [16] = {
         {KC_LEFT, KC_RIGHT},
     },
+    [17] = {
+        {KC_SPC, KC_MEDIA_PLAY_PAUSE},
+    },
 };
 
 #ifdef __cplusplus
